@@ -68,6 +68,21 @@ Este projeto consiste em um banco de dados para uma loja de varejo, com o objeti
 ```sql
 SELECT nome, estoque_quantidade
 FROM Produtos
-WHERE estoque_quantidade > 0; 
+WHERE estoque_quantidade > 0;
+```
+### Consulta de pedido por cliente
+```sql
+SELECT c.nome AS cliente, p.data_pedido, p.status
+FROM Pedidos p
+JOIN Clientes c ON p.cliente_id = c.cliente_id; 
+```
+### Consulta de valor total de compras por fornecedor 
+```sql
+SELECT f.nome AS fornecedor, SUM(valor_total) AS total_compras
+FROM Compras c
+JOIN Fornecedores f ON c.fornecedor_id = f.fornecedor_id
+GROUP BY f.nome;
+
+
 
 
