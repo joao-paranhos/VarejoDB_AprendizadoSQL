@@ -5,56 +5,60 @@ Este projeto consiste em um banco de dados para uma loja de varejo, com o objeti
 ## Tabelas:
 
 ### Produtos:
-- `produto_id` (Chave Primária)
-- `nome`
-- `descricao`
-- `preco`
-- `estoque_quantidade`
-- `categoria_id` (Chave Estrangeira para a tabela de Categorias)
+### Produtos
+- `produto_id` (Chave Primária, INT)
+- `nome` (Varchar(255))
+- `descricao` (Varchar (250))
+- `preco` (Float)
+- `estoque_quantidade` (INT)
+- `categoria_id` (Chave Estrangeira para a tabela de Categorias, INT)
 
 ### Categorias:
-- `categoria_id` (Chave Primária)
-- `nome`
+- `categoria_id` (Chave Primária, INT)
+- `nome` (Varchar (250))
 
 ### Clientes:
-- `cliente_id` (Chave Primária)
-- `nome`
-- `endereco`
-- `telefone`
-- `email`
+- `cliente_id` (Chave Primária INT)
+- `nome` (Varchar (150))
+- `endereco` (Varchar (200))
+- `telefone` (Varchar (8))
+- `celular` (varchar (9))
+- `email` (Varchar (200))
 
 ### Pedidos:
-- `pedido_id` (Chave Primária)
-- `cliente_id` (Chave Estrangeira para a tabela de Clientes)
-- `data_pedido`
-- `status` (Pendente, Em Andamento, Concluído)
+- `pedido_id` (Chave Primária INT)
+- `cliente_id` (Chave Estrangeira para a tabela de Clientes INT) 
+- `data_pedido` (DATE)
+- `status` (Pendente, Em Andamento, Concluído varchar(12))
+- `Preco` (Float)
 
 ### Itens de Pedido:
-- `item_id` (Chave Primária)
-- `pedido_id` (Chave Estrangeira para a tabela de Pedidos)
-- `produto_id` (Chave Estrangeira para a tabela de Produtos)
-- `quantidade`
-- `preco_unitario`
+- `numero_item` 
+- `pedido_id` (Chave Estrangeira para a tabela de Pedidos INT)
+- `produto_id` (Chave Estrangeira para a tabela de Produtos INT)
+- `quantidade` (INT)
+- `preco_unitario` (Float)
 
 ### Funcionários:
-- `funcionario_id` (Chave Primária)
-- `nome`
-- `cargo`
-- `data_contratacao`
-- `salario`
+- `funcionario_id` (Chave Primária INT)
+- `nome` (Varchar (150)) 
+- `cargo` (Varchar (100))
+- `data_contratacao` (Date)
+- `salario` (Float)
 
 ### Fornecedores:
-- `fornecedor_id` (Chave Primária)
-- `nome`
-- `endereco`
-- `telefone`
-- `email`
+- `fornecedor_id` (Chave Primária INT)
+- `nome` (Varchar (150)
+- `endereco` (Varchar (200))
+- `telefone` (Varchar (8))
+- `celular` (Varchar (9))
+- `email` (Varchar (200))
 
 ### Compras:
-- `compra_id` (Chave Primária)
-- `fornecedor_id` (Chave Estrangeira para a tabela de Fornecedores)
-- `data_compra`
-- `valor_total`
+- `compra_id` (Chave Primária INT)
+- `fornecedor_id` (Chave Estrangeira para a tabela de Fornecedores INT)
+- `data_compra` (Date)
+- `valor_total` (Float)
 
 ### Relacionamentos:
 - A tabela de Itens de Pedido se relaciona com as tabelas de Pedidos e Produtos para registrar os produtos incluídos em cada pedido.
